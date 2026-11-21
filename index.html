@@ -1,0 +1,716 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="省级足球锦标赛三天场馆专项运行方案，含组织架构、岗位配置、赛前筹备、赛中运行、应急保障及赛后撤场。">
+<title>省级足球锦标赛｜场馆专项运行方案</title>
+<style>
+:root{
+  --bg:#09111d;--bg2:#0e1a2a;--panel:#122238;--panel2:#172c45;
+  --line:#2a405d;--text:#edf4ff;--muted:#a9bad0;--green:#55d6a0;
+  --blue:#76b5ff;--amber:#ffca72;--red:#ff8585;--purple:#c1a4ff;
+  --shadow:0 18px 50px rgba(0,0,0,.22)
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:"Microsoft YaHei","PingFang SC",Arial,sans-serif}
+body{overflow:hidden}
+button{font:inherit}
+.app{height:100vh;display:flex;flex-direction:column;background:
+ radial-gradient(circle at 85% 12%,rgba(44,110,128,.15),transparent 26%),
+ linear-gradient(135deg,#09111d 0%,#0b1727 60%,#0a1422 100%)}
+.topbar{height:54px;flex:0 0 54px;display:flex;align-items:center;justify-content:space-between;padding:0 26px;border-bottom:1px solid var(--line);background:rgba(7,15,26,.88)}
+.brand{font-size:12px;letter-spacing:.13em;font-weight:800;color:#c9d9ed}
+.brand span{color:var(--green)}
+.top-actions{display:flex;align-items:center;gap:8px}
+.top-actions button,.navbtn{border:1px solid var(--line);border-radius:9px;background:var(--panel);color:var(--text);padding:8px 12px;cursor:pointer;font-size:12px}
+.top-actions button:hover,.navbtn:hover{border-color:var(--green)}
+.progress{height:3px;background:#182b42;flex:0 0 3px}
+.progress>span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--blue));transition:width .25s}
+.stage{position:relative;flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:28px 28px 18px}
+.slide{display:none;width:min(1240px,96vw);height:min(760px,calc(100vh - 130px));overflow:auto;padding:clamp(22px,3vw,42px);border:1px solid rgba(74,104,139,.34);border-radius:20px;background:linear-gradient(145deg,rgba(17,34,55,.98),rgba(12,26,43,.98));box-shadow:var(--shadow);scrollbar-width:thin;scrollbar-color:#395472 transparent}
+.slide.active{display:block;animation:enter .22s ease}
+@keyframes enter{from{opacity:.45;transform:translateY(7px)}to{opacity:1;transform:none}}
+.kicker{color:var(--green);font-size:11px;letter-spacing:.18em;font-weight:800;text-transform:uppercase;margin:0 0 12px}
+h1{font-size:clamp(34px,5.4vw,66px);line-height:1.12;letter-spacing:-.03em;margin:0 0 20px}
+h2{font-size:clamp(25px,3.2vw,40px);line-height:1.2;margin:0 0 22px;letter-spacing:-.02em}
+h3{font-size:16px;margin:0 0 10px;color:var(--green)}
+h4{font-size:14px;margin:0 0 8px;color:#dbe9fb}
+p{color:var(--muted);font-size:14px;line-height:1.75;margin:7px 0}
+.subtitle{font-size:clamp(16px,2vw,21px);max-width:850px;color:#c4d4e8}
+.titleline{height:4px;width:100px;border-radius:4px;background:var(--green);margin:28px 0}
+.meta{display:flex;flex-wrap:wrap;gap:10px 24px;color:#b4c6dc;font-size:13px}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid var(--line);border-radius:99px;color:#b9cce2;font-size:11px;margin:3px 5px 3px 0;background:rgba(22,42,66,.55)}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}
+.metric{padding:17px;border:1px solid var(--line);border-radius:14px;background:var(--panel)}
+.metric .n{font-size:34px;color:var(--green);font-weight:900;line-height:1.1}
+.metric .u{font-size:12px;color:var(--muted);margin-left:4px}
+.metric .lab{font-size:12px;color:#d4e0ee;margin-top:8px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.card{border:1px solid var(--line);border-radius:14px;padding:16px;background:rgba(18,36,58,.82);min-width:0}
+.card p{font-size:13px;margin:5px 0 0}
+.card ul{margin:8px 0 0;padding-left:19px;color:#cad8e9;font-size:13px;line-height:1.75}
+.card li{margin:3px 0}
+strong{color:#f3f7ff}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:10px 0}
+.step{flex:1 1 115px;min-width:110px;text-align:center;padding:13px 10px;border:1px solid #35516f;border-radius:11px;background:var(--panel2);color:#e4effb;font-size:13px;font-weight:700}
+.arrow{color:var(--green);font-size:20px;font-weight:900}
+table{border-collapse:separate;border-spacing:0;width:100%;overflow:hidden;border:1px solid var(--line);border-radius:12px;background:rgba(15,31,50,.88);font-size:12px;line-height:1.55}
+th,td{padding:10px 11px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{background:#1a304b;color:var(--green);font-weight:800}
+tr:last-child td{border-bottom:0}
+tr:nth-child(even) td{background:rgba(25,47,73,.28)}
+.note{border-left:4px solid var(--amber);background:rgba(93,68,28,.20);padding:12px 15px;border-radius:8px;color:#f0ddb7;font-size:12px;line-height:1.7;margin-top:13px}
+.good{border-left-color:var(--green);background:rgba(33,100,71,.17);color:#c9efdc}
+.danger{border-left-color:var(--red);background:rgba(118,39,47,.18);color:#ffd0d0}
+.timeline{display:grid;grid-template-columns:120px 1fr;gap:9px;margin:9px 0}
+.when{font-weight:900;color:var(--green);font-size:13px;padding:10px 0}
+.what{padding:10px 13px;border:1px solid var(--line);border-radius:10px;background:rgba(17,35,56,.86);font-size:13px;line-height:1.65;color:#d6e2f1}
+.what b{color:#fff}
+.bar{height:25px;display:flex;overflow:hidden;border-radius:7px;background:#1a2c42;margin:10px 0}
+.bar>span{display:flex;align-items:center;justify-content:center;color:#071522;font-size:10px;font-weight:900;white-space:nowrap}
+.c1{background:#58d6a1}.c2{background:#77b8ff}.c3{background:#ffca72}.c4{background:#c1a4ff}.c5{background:#ff8989}.c6{background:#6bd0d8}
+.checkgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.check{display:flex;gap:9px;align-items:flex-start;padding:10px 12px;border:1px solid var(--line);border-radius:9px;background:rgba(18,36,58,.75);font-size:12px;line-height:1.5;color:#d4e1f0}
+.check input{accent-color:var(--green);margin-top:2px;flex:0 0 auto}
+.check:has(input:checked){color:#92a9c2;text-decoration:line-through}
+.footer{height:58px;flex:0 0 58px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;padding:0 26px;background:rgba(7,15,26,.9)}
+.footer-left,.footer-right{display:flex;align-items:center;gap:9px}
+.counter{font-size:12px;color:#a9bdd5;min-width:92px;text-align:center}
+.hint{color:#8297b0;font-size:11px}
+.navbtn{font-size:13px;padding:9px 15px}
+.navbtn.primary{background:#1a604b;border-color:#2c9b72;color:#effff7}
+.toc{position:fixed;z-index:5;right:20px;top:65px;width:280px;max-height:calc(100vh - 100px);overflow:auto;display:none;padding:14px;border:1px solid var(--line);border-radius:14px;background:#0e1a2b;box-shadow:var(--shadow)}
+.toc.open{display:block}
+.toc h3{margin:3px 4px 10px}
+.toc button{display:block;width:100%;text-align:left;padding:8px 9px;margin:3px 0;border:0;border-radius:7px;color:#c4d3e5;background:transparent;font-size:12px;cursor:pointer}
+.toc button:hover,.toc button.sel{background:#1b3552;color:var(--green)}
+.cover{display:flex;flex-direction:column;justify-content:center;min-height:100%}
+.cover-art{position:absolute;right:7%;top:18%;width:34%;height:60%;opacity:.18;pointer-events:none}
+.kpi{display:flex;gap:12px;align-items:center}
+.kpi .dot{width:10px;height:10px;border-radius:50%;background:var(--green);flex:0 0 auto}
+.small{font-size:11px;color:#92a9c3;line-height:1.65}
+.reference a{color:#8ec5ff;text-decoration:none;word-break:break-all}
+.reference a:hover{text-decoration:underline}
+.twolevel{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:850px){
+ body{overflow:auto}.app{height:auto;min-height:100vh}.stage{padding:14px 10px}
+ .slide{height:auto;min-height:calc(100vh - 145px);width:100%;padding:20px 16px}
+ .grid3,.grid4,.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .topbar{padding:0 12px}.footer{padding:0 12px}.hint{display:none}
+ .cover-art{display:none}
+}
+@media(max-width:560px){
+ .grid,.grid3,.grid4,.metrics,.checkgrid,.twolevel{grid-template-columns:1fr}
+ .timeline{grid-template-columns:78px 1fr}
+ table{font-size:11px}th,td{padding:7px}
+ .top-actions button{padding:7px 8px}
+}
+@media print{
+ @page{size:landscape;margin:10mm}
+ body{overflow:visible;background:white;color:#111}
+ .app{height:auto;background:white}
+ .topbar,.progress,.footer,.toc{display:none!important}
+ .stage{display:block;padding:0}
+ .slide,.slide.active{display:block!important;width:100%;height:auto;min-height:0;overflow:visible;page-break-after:always;break-after:page;border:0;box-shadow:none;border-radius:0;background:white;color:#111;padding:10mm}
+ .card,.metric,.what,.step,.check{background:#f5f7fa!important;border-color:#cbd5e1!important;color:#111!important;break-inside:avoid}
+ h1,h2,h3,h4,strong{color:#111!important}p,li,.subtitle,.meta,.small{color:#333!important}
+ table{background:white;color:#111}th{background:#e8eef5!important;color:#111}td{background:white!important}
+ .note{background:#fff7e7;color:#222}.good{background:#e9f8ef;color:#222}
+}
+
+/* LEFT SIDEBAR + CONTINUOUS SCROLL PATCH */
+.app{
+  display:grid; grid-template-columns:260px minmax(0,1fr);
+  grid-template-rows:54px 3px minmax(0,1fr) 58px;
+  height:100vh; min-height:0;
+}
+.topbar{grid-column:1/-1;grid-row:1}
+.progress{grid-column:1/-1;grid-row:2}
+.toc{
+  display:block!important; position:static;
+  grid-column:1;grid-row:3/5; width:auto;height:auto;max-height:none;
+  overflow-y:auto;overflow-x:hidden; padding:15px 12px;
+  background:rgba(8,17,29,.96); border:0;
+  border-right:1px solid var(--line); border-radius:0; box-shadow:none;
+}
+.toc h3{padding:2px 8px 9px;font-size:14px}
+#tocItems{display:block}
+.toc button{
+  display:block;width:100%;text-align:left;padding:9px 10px;margin:3px 0;
+  line-height:1.45;border:0;border-left:3px solid transparent;border-radius:6px;
+  background:transparent;color:#c4d3e5;font-size:12px;cursor:pointer;
+}
+.toc button:hover{background:#172c43;color:#fff}
+.toc button.sel{border-left-color:var(--green);background:#1b3552;color:var(--green);font-weight:800}
+#tocBtn{display:none!important}
+.stage{
+  grid-column:2;grid-row:3;display:block;min-width:0;min-height:0;
+  overflow-y:auto;overflow-x:hidden;padding:20px 24px 28px;
+  scroll-behavior:smooth;overscroll-behavior:contain;
+}
+.slide,.slide.active{
+  display:block!important;width:min(1240px,100%);height:auto;
+  min-height:calc(100vh - 145px);max-height:none;overflow:visible;
+  margin:0 auto 20px;scroll-margin-top:12px;
+}
+.footer{grid-column:2;grid-row:4}
+.stage::-webkit-scrollbar,.toc::-webkit-scrollbar{width:9px}
+.stage::-webkit-scrollbar-thumb,.toc::-webkit-scrollbar-thumb{background:#344d69;border-radius:9px}
+@media(max-width:850px){
+  .app{grid-template-columns:minmax(0,1fr);grid-template-rows:54px 3px 124px minmax(0,1fr) 58px}
+  .topbar{grid-column:1;grid-row:1}.progress{grid-column:1;grid-row:2}
+  .toc{
+    grid-column:1;grid-row:3;height:124px;max-height:124px;
+    padding:8px 10px;border-right:0;border-bottom:1px solid var(--line);
+    overflow-x:auto;overflow-y:auto;
+  }
+  .toc h3{font-size:12px;margin:0 4px 5px;padding:0}
+  #tocItems{display:grid;grid-auto-flow:column;grid-template-rows:repeat(3,min-content);grid-auto-columns:max-content;gap:2px 5px;overflow-x:auto;padding-bottom:5px}
+  .toc button{width:auto;white-space:nowrap;padding:6px 9px;font-size:11px}
+  .stage{grid-column:1;grid-row:4;padding:12px 10px 18px}
+  .slide,.slide.active{min-height:calc(100vh - 270px);margin-bottom:12px;padding:20px 16px}
+  .footer{grid-column:1;grid-row:5}
+}
+@media(max-width:560px){
+  .app{grid-template-rows:54px 3px 116px minmax(0,1fr) 58px}
+  .toc{height:116px;max-height:116px}
+  .stage{padding:8px}
+  .slide,.slide.active{min-height:calc(100vh - 255px);padding:18px 14px}
+}
+@media print{
+  .app{display:block;height:auto;min-height:0;background:white}
+  .topbar,.progress,.toc,.footer{display:none!important}
+  .stage{display:block;overflow:visible;padding:0}
+  .slide,.slide.active{display:block!important;width:100%;height:auto;min-height:0;max-height:none;overflow:visible;margin:0;padding:10mm;page-break-after:always;break-after:page}
+}
+
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="topbar">
+    <div class="brand">VENUE OPERATIONS <span> / FOOTBALL</span> · 场馆专项运行方案</div>
+    <div class="top-actions">
+      <button id="tocBtn">章节目录</button>
+      <button id="printBtn">打印 / 导出 PDF</button>
+      <button id="fullBtn">全屏</button>
+    </div>
+  </div>
+  <div class="progress"><span id="progressBar"></span></div>
+  <div class="stage" id="stage">
+
+<section class="slide active">
+<div class="cover">
+<div class="kicker">省级正规单项体育锦标赛 · 场馆运行执行版</div>
+<h1>省级足球锦标赛<br><span style="color:var(--green)">场馆专项运行方案</span></h1>
+<p class="subtitle">统筹赛前筹备、赛中运行、风险防控与赛后恢复，建立统一指挥、岗位到人、区域负责、问题闭环的场馆运行体系。</p>
+<div class="titleline"></div>
+<div class="meta"><span>赛期：3天</span><span>运动员：200人</span><span>裁判及工作人员：200人（合计口径）</span><span>观众：1000人/天</span></div>
+<div style="margin-top:24px"><span class="badge">场馆运行总负责人</span><span class="badge">实操统筹方案</span><span class="badge">HTML演示版</span></div>
+<p class="small" style="margin-top:34px">编制说明：本文件为通用赛事场馆运行方案底稿。场馆面积、核定容量、出入口、竞赛规程、比赛场次、属地要求等信息未提供，涉及数字和时刻均为方案测算/示例，须在现场踏勘、风险评估及主管部门审核后定稿。</p>
+</div>
+</section>
+
+<section class="slide">
+<div class="kicker">01 / 赛事概况</div><h2>赛事规模、管理边界与运行目标</h2>
+<div class="metrics">
+<div class="metric"><div class="n">3<span class="u">天</span></div><div class="lab">连续赛事运行</div></div>
+<div class="metric"><div class="n">200<span class="u">人</span></div><div class="lab">参赛运动员</div></div>
+<div class="metric"><div class="n">200<span class="u">人</span></div><div class="lab">裁判及赛事工作人员合计</div></div>
+<div class="metric"><div class="n">1,000<span class="u">人/天</span></div><div class="lab">每日观众预计到场量</div></div>
+</div>
+<div class="grid">
+<div class="card"><h3>运行目标</h3><ul><li><b>安全：</b>隐患可识别、风险有控制、应急能响应。</li><li><b>有序：</b>观众、运动队、裁判、媒体及救援流线尽可能分离。</li><li><b>准时：</b>场地交付、入场、比赛衔接和场地转换按竞赛日程执行。</li><li><b>服务：</b>提供清晰导向、饮水、卫生、咨询及无障碍协助。</li><li><b>闭环：</b>问题有记录、责任人、整改期限和复核结论。</li></ul></div>
+<div class="card"><h3>管理边界</h3><ul><li>场馆运行负责人统筹场馆空间、服务、设施和现场运行资源。</li><li>竞赛规则、赛程、裁判判罚及比赛是否继续，由竞赛组织体系按规程决定。</li><li>公安、消防、医疗、交通等专业事项由具备职责和资质的部门实施。</li><li>遇即时生命安全危险，现场人员先采取必要避险、报警和救助措施，同时报告指挥中心。</li></ul></div>
+</div>
+<div class="note">人数口径：1000人/天是每日累计观众量，不等于同时在场人数。必须以售检票/计数数据、场馆核定安全容量和分区承载能力控制实时人数。</div>
+</section>
+
+<section class="slide">
+<div class="kicker">02 / 编制依据与假设</div><h2>正式执行前必须核实的条件</h2>
+<table><thead><tr><th style="width:22%">待核实事项</th><th>本方案采用的暂定口径</th><th>正式版需要补齐</th></tr></thead><tbody>
+<tr><td>赛事组织</td><td>省级足球单项锦标赛，连续3天</td><td>主办、承办、协办单位；赛事名称；属地备案/审批要求；竞赛规程</td></tr>
+<tr><td>竞赛安排</td><td>按每日赛程滚动运行，不预设比赛场次</td><td>组别、队伍数量、赛制、场次、开球时间、颁奖安排</td></tr>
+<tr><td>场馆情况</td><td>具备比赛场地、看台、运动员服务区及观众出入口</td><td>场馆平面图、核定容量、看台分区、出入口宽度、疏散路线</td></tr>
+<tr><td>人员口径</td><td>运动员200人；裁判及工作人员合计200人</td><td>裁判、技术官员、竞赛人员、安保、医务、志愿者名单及资质</td></tr>
+<tr><td>观众规模</td><td>每日观众累计约1000人</td><td>票务/预约机制、峰值到场曲线、是否有贵宾或团队观赛</td></tr>
+<tr><td>保障资源</td><td>由场馆、组委会和属地部门协同提供</td><td>救护车、医疗机构、公安、消防、交警、工程值班及备用系统</td></tr>
+</tbody></table>
+<div class="note danger">重要：本文件不能替代依法需要的审批、备案、风险评估、安全工作方案、医疗保障方案、消防及场馆专项预案。未确认场馆容量、人员疏散条件和属地要求前，不得据此直接开放场馆。</div>
+</section>
+
+<section class="slide">
+<div class="kicker">03 / 总体运行模式</div><h2>一个指挥中枢、专项工作组、区域责任到人</h2>
+<div class="card" style="text-align:center;background:#203b58;border-color:#416483">
+<h3 style="color:#c7f6df;font-size:19px">场馆运行总负责人</h3><p style="color:#d6e7f7">综合统筹｜资源协调｜风险升级｜跨部门联动｜运行决策建议</p></div>
+<div style="text-align:center;color:var(--green);font-size:22px;margin:6px">↓</div>
+<div class="card" style="text-align:center"><h3 style="font-size:17px">场馆运行指挥中心（VOC）</h3><p>态势监控 · 通信调度 · 信息汇总 · 事件记录 · 指令传达 · 资源协调</p></div>
+<div class="grid3" style="margin-top:12px">
+<div class="card"><h3>竞赛与场地组</h3><p>竞赛联络、场地交接、器材、检录、更衣室、训练热身衔接。</p></div>
+<div class="card"><h3>安保与人流组</h3><p>外围秩序、入口、安检协同、看台、重点区域、散场和疏散。</p></div>
+<div class="card"><h3>设施工程组</h3><p>供配电、照明、广播、网络、监控、显示系统、工程抢修。</p></div>
+<div class="card"><h3>医疗卫生组</h3><p>赛场急救、观众医疗、救护车接应、医疗转运和卫生巡检。</p></div>
+<div class="card"><h3>观众服务组</h3><p>咨询、票证引导、座席指引、无障碍服务、失物和投诉。</p></div>
+<div class="card"><h3>后勤交通组</h3><p>餐饮饮水、物资仓储、停车落客、车辆调度、保洁垃圾。</p></div>
+<div class="card"><h3>媒体信息组</h3><p>媒体签到、授权区域、信息发布、摄影采访与新闻服务。</p></div>
+<div class="card"><h3>志愿者与机动组</h3><p>岗前培训、排班考勤、岗位补位、流动支援、休息轮换。</p></div>
+<div class="card"><h3>外部联动单位</h3><p>公安、消防、属地医疗、交警、体育主管部门及场馆管理方。</p></div>
+</div>
+<div class="note good">指挥原则：专项组对本专业工作负责；区域负责人对区域状态负责；重大风险及时上报VOC；现场指令要复诵确认并反馈执行结果。</div>
+</section>
+
+<section class="slide">
+<div class="kicker">04 / 场馆功能分区</div><h2>“八区一中心”功能规划</h2>
+<div class="grid4">
+<div class="card"><h3>① 比赛核心区</h3><p>足球场、技术区、替补席、场边医疗通道。严格证件准入。</p></div>
+<div class="card"><h3>② 竞赛保障区</h3><p>运动队更衣室、裁判室、检录区、会议及工作间。</p></div>
+<div class="card"><h3>③ 运动员服务区</h3><p>热身、饮水、休息、恢复及球队候场区域。</p></div>
+<div class="card"><h3>④ 观众服务区</h3><p>观众入口、安检验票、看台、卫生间、咨询点。</p></div>
+<div class="card"><h3>⑤ 媒体工作区</h3><p>媒体签到、采访、混合采访区及授权拍摄位置。</p></div>
+<div class="card"><h3>⑥ 医疗救援区</h3><p>观众医疗点、赛场医疗点、救护车停靠与转运通道。</p></div>
+<div class="card"><h3>⑦ 后勤保障区</h3><p>物资仓库、餐饮饮水、保洁、垃圾暂存和设备间。</p></div>
+<div class="card"><h3>⑧ 运行指挥区</h3><p>VOC、监控、通信调度、运行日志和应急资料。</p></div>
+</div>
+<div class="note">分区原则：以实际建筑平面、消防设计、场馆许可及运营条件为准。不得为实现“分区”而封堵法定疏散路径；临时隔离设施必须经场馆和安全管理负责人确认。</div>
+</section>
+
+<section class="slide">
+<div class="kicker">05 / 人员动线</div><h2>四类流线尽可能独立，交叉处设置控制岗</h2>
+<div class="card"><h3>运动员 / 裁判 / 竞赛官员</h3><div class="flow"><div class="step">授权专用入口</div><div class="arrow">→</div><div class="step">证件核验 / 签到</div><div class="arrow">→</div><div class="step">检录 / 更衣</div><div class="arrow">→</div><div class="step">热身区</div><div class="arrow">→</div><div class="step">比赛区 / 离场</div></div></div>
+<div class="card" style="margin-top:11px"><h3>观众</h3><div class="flow"><div class="step">外围到达 / 落客</div><div class="arrow">→</div><div class="step">排队缓冲区</div><div class="arrow">→</div><div class="step">安检 / 验票</div><div class="arrow">→</div><div class="step">看台分区</div><div class="arrow">→</div><div class="step">分区散场</div></div></div>
+<div class="grid" style="margin-top:11px">
+<div class="card"><h3>媒体流线</h3><p>媒体签到 → 身份及权限核验 → 媒体工作区 → 授权拍摄/采访点 → 离场。未经授权不进入更衣室、裁判室和竞赛核心区域。</p></div>
+<div class="card"><h3>医疗 / 消防救援流线</h3><p>医疗点 → 应急通道 → 救护车接应点/场外转运。路线不得停车、堆物或设置无法快速开启的障碍。</p></div>
+</div>
+<div class="note danger">场馆存在必然交叉点时，采用分时放行、实体隔离、单向组织、岗位值守和无线电联络控制；具体交叉点应标注在场馆平面图上并经现场踏勘确认。</div>
+</section>
+
+<section class="slide">
+<div class="kicker">06 / 人员配置</div><h2>200名裁判及工作人员的建议岗位分配</h2>
+<p>以下按“裁判与赛事工作人员总计200人”测算，避免在题目既定200人之外再重复增加一套200人运行团队。实际人数须随赛制、比赛场次、场馆出入口和专业部门核定结果调整。</p>
+<table><thead><tr><th>模块</th><th>建议人数</th><th>职责摘要</th><th>配置说明</th></tr></thead><tbody>
+<tr><td>裁判及技术官员</td><td>30</td><td>裁判执裁、技术代表、竞赛监督、技术记录</td><td>示例测算，按赛程与竞赛规则核定</td></tr>
+<tr><td>竞赛组织与场地保障</td><td>28</td><td>竞赛联络、检录、器材、球队服务、场地交接</td><td>按比赛场数和场地数量调整</td></tr>
+<tr><td>安保与入口秩序</td><td>40</td><td>外围、入口、看台、重点区域、机动巡查</td><td>须由属地公安/专业安保评估</td></tr>
+<tr><td>医疗与卫生保障</td><td>12</td><td>医疗点、赛场救护、观众急救、卫生巡查</td><td>由医疗负责人按风险和资质核定</td></tr>
+<tr><td>观众服务与志愿者</td><td>28</td><td>咨询、座席引导、无障碍协助、失物服务</td><td>与安保岗位职责边界明确</td></tr>
+<tr><td>设施工程与信息技术</td><td>12</td><td>电力、广播、网络、监控、显示及维修</td><td>重要系统安排工程值班</td></tr>
+<tr><td>后勤、交通与保洁</td><td>20</td><td>物资、饮水餐食、停车、落客、垃圾清运</td><td>按场馆条件和供应商服务配置</td></tr>
+<tr><td>指挥、综合与媒体</td><td>10</td><td>VOC、信息记录、对外联络、媒体服务</td><td>含现场负责人/值班调度</td></tr>
+<tr><td>机动补位与轮休</td><td>20</td><td>跨区域补位、岗位轮换、应急支援</td><td>不应全部固定在单一岗位</td></tr>
+<tr><td><strong>合计</strong></td><td><strong>200人</strong></td><td>全体裁判及赛事工作人员</td><td>岗位测算汇总</td></tr>
+</tbody></table>
+<div class="note danger">此表是管理测算，不是国家规定的法定配比。特别是安保、医疗、消防相关人员数量和资质，不得仅按表格照搬；应以属地公安、消防、卫生健康部门、场馆核定容量和赛事风险评估为准。若200人实际只指裁判与竞赛工作人员，不含安保医疗等外包力量，需重新核算总用工。</div>
+</section>
+
+<section class="slide">
+<div class="kicker">07 / 岗位责任</div><h2>专项组长的职责与日常交付物</h2>
+<table><thead><tr><th>岗位负责人</th><th>核心职责</th><th>每日必须交付</th></tr></thead><tbody>
+<tr><td>运行总负责人</td><td>统筹全场；主持晨会/复盘；协调资源；重大风险升级</td><td>运行简报、开放确认、重大事项决策记录</td></tr>
+<tr><td>VOC值班长</td><td>接报、分派、跟踪、记录、复核、信息发布协调</td><td>运行日志、事件台账、岗位联络表</td></tr>
+<tr><td>竞赛保障组长</td><td>与竞赛部门衔接；场地交接；检录、器材和比赛衔接</td><td>场地检查表、比赛场次保障确认</td></tr>
+<tr><td>安保组长</td><td>入口与看台秩序、通道巡查、限流、散场与外围联动</td><td>岗位图、巡查记录、拥堵与事件记录</td></tr>
+<tr><td>工程组长</td><td>供电、照明、广播、网络、监控、设备维修与备用</td><td>设备巡检表、故障单、维修验收单</td></tr>
+<tr><td>医疗组长</td><td>赛场/观众医疗、救护车接应、医院联络、医疗事件登记</td><td>医疗点检查、值班表、医疗事件记录（注意隐私）</td></tr>
+<tr><td>观众服务组长</td><td>咨询、座席、特殊人群服务、投诉和失物处理</td><td>服务点检查、投诉与失物闭环表</td></tr>
+<tr><td>后勤组长</td><td>物资、餐饮饮水、车辆、保洁、仓储及供应商管理</td><td>物资台账、补给记录、车辆安排、清洁记录</td></tr>
+</tbody></table>
+<div class="note good">岗位交接格式：当前状态 → 未完成事项 → 风险点 → 已采取措施 → 责任人 → 下次反馈时间。不得只口头说“正常”。</div>
+</section>
+
+<section class="slide">
+<div class="kicker">08 / 赛前筹备</div><h2>赛前30天倒排计划</h2>
+<div class="timeline"><div class="when">T-30 至 T-21</div><div class="what"><b>组织启动与现场踏勘：</b>明确主承办责任和联系人；核查场馆平面、核定容量、出入口、停车、消防、医疗、供电、广播、监控；形成问题清单和责任分工。</div></div>
+<div class="timeline"><div class="when">T-20 至 T-15</div><div class="what"><b>方案编制与资源锁定：</b>完成场馆运行方案、安全工作方案、风险评估、医疗保障、交通组织、信息发布、熔断与应急预案；确认人员和外部保障资源。</div></div>
+<div class="timeline"><div class="when">T-14 至 T-8</div><div class="what"><b>场馆布置及系统测试：</b>设置分区标识、引导标识、隔离设施；检查球门器材、草坪、照明、广播、通信、监控、应急照明及备用供电。</div></div>
+<div class="timeline"><div class="when">T-7 至 T-4</div><div class="what"><b>全员培训与岗位实操：</b>开展岗位职责、证件权限、观众服务、对讲机、医疗呼叫、消防避险、恶劣天气及异常事件报告培训。</div></div>
+<div class="timeline"><div class="when">T-3 至 T-2</div><div class="what"><b>联合演练：</b>模拟观众入场高峰、运动员检录、赛场伤病、看台突发情况、火情疏散、停电、暴雨雷电和散场。</div></div>
+<div class="timeline"><div class="when">T-1</div><div class="what"><b>终检、验收与封场：</b>逐项销项；确认岗位、物资、通信、外部联络；召开赛前联席会；由有权责任主体完成开放条件确认。</div></div>
+<div class="note">若实际筹备周期不足30天，应按风险和关键路径压缩，但不得压缩依法必须履行的审批、验收、培训、演练和专业检查环节。</div>
+</section>
+
+<section class="slide">
+<div class="kicker">09 / 赛前验收</div><h2>场馆开放前联合检查清单</h2>
+<div class="checkgrid">
+<label class="check"><input type="checkbox"> 场馆核定容量、开放区域和观众分区已确认</label>
+<label class="check"><input type="checkbox"> 草坪、排水、标线、球门、球网、角旗已检查</label>
+<label class="check"><input type="checkbox"> 替补席、技术区、比赛器材和备用器材已到位</label>
+<label class="check"><input type="checkbox"> 运动员、裁判检录、更衣、热身路线已验证</label>
+<label class="check"><input type="checkbox"> 观众入口、排队缓冲区、安检验票流程已测试</label>
+<label class="check"><input type="checkbox"> 看台通道、座椅、栏杆及疏散出口无异常</label>
+<label class="check"><input type="checkbox"> 消防设施、应急照明、疏散指示正常有效</label>
+<label class="check"><input type="checkbox"> 医疗点、急救设备和救护车接应路线已确认</label>
+<label class="check"><input type="checkbox"> 广播、对讲、监控、网络及显示系统联调通过</label>
+<label class="check"><input type="checkbox"> 主备电源、关键设备和工程值班已确认</label>
+<label class="check"><input type="checkbox"> 饮水、卫生间、保洁和垃圾清运安排到位</label>
+<label class="check"><input type="checkbox"> 车辆落客、停车和救援通道已明确</label>
+<label class="check"><input type="checkbox"> 全员签到、岗位图、通讯录及轮班安排已确认</label>
+<label class="check"><input type="checkbox"> 应急演练完成，问题整改及复核有记录</label>
+</div>
+<div class="note danger">任何影响结构安全、消防、疏散、救援通道、关键供电或场地安全的重大问题未整改，不得开放相关区域。开放决定由赛事组织方、场馆管理方及依法承担职责的专业部门按程序作出。</div>
+</section>
+
+<section class="slide">
+<div class="kicker">10 / 三天赛事运行</div><h2>每日运行时间轴（示例，按赛程平移）</h2>
+<div class="timeline"><div class="when">06:30</div><div class="what"><b>运行人员到岗：</b>签到、班前交接、检查对讲机和岗位物资。</div></div>
+<div class="timeline"><div class="when">06:45</div><div class="what"><b>运行晨会：</b>通报赛程、天气、观众预测、风险提示、昨日问题及今日责任人。</div></div>
+<div class="timeline"><div class="when">07:00</div><div class="what"><b>场馆巡检：</b>比赛场地、消防、观众通道、医疗、供电、广播、监控、卫生。</div></div>
+<div class="timeline"><div class="when">按赛程</div><div class="what"><b>运动队及裁判到场：</b>证件核验、检录、更衣、赛前会议、热身和场地交接。</div></div>
+<div class="timeline"><div class="when">开门前</div><div class="what"><b>观众入场准备：</b>入口岗就位、安检和验票联调、看台岗位确认、计数设备清零/测试。</div></div>
+<div class="timeline"><div class="when">比赛期间</div><div class="what"><b>赛事运行：</b>竞赛保障、看台秩序、设备值守、医疗待命、广播信息、巡查与轮休。</div></div>
+<div class="timeline"><div class="when">场次间歇</div><div class="what"><b>场地转换：</b>器材复核、场地维护、观众服务、垃圾清运、补水补给、下一场准备。</div></div>
+<div class="timeline"><div class="when">闭赛后</div><div class="what"><b>散场与闭场：</b>分区引导离场、外围交通协同、清场、设备复位、物资盘点和运行复盘。</div></div>
+<div class="note">此时间轴仅作班次组织示例。实际开门、检录、热身、开球、颁奖和清场时刻必须与正式竞赛日程、场馆开放条件和属地管理要求一致。</div>
+</section>
+
+<section class="slide">
+<div class="kicker">11 / 三天差异化管理</div><h2>首日磨合、次日稳定、末日收官</h2>
+<div class="grid3">
+<div class="card"><h3>第1天｜开赛日</h3><ul><li>重点检查首次执行流程。</li><li>观察观众到场峰值及排队时长。</li><li>核验检录、更衣、热身、场地交接顺畅度。</li><li>问题现场登记，明确次日调整责任人。</li></ul></div>
+<div class="card"><h3>第2天｜稳定运行日</h3><ul><li>按首日数据优化入口开岗和岗位布点。</li><li>检查设施连续运行、保洁和物资库存。</li><li>落实人员轮休，防止疲劳值守。</li><li>复核天气变化和赛事风险。</li></ul></div>
+<div class="card"><h3>第3天｜收官日</h3><ul><li>提前准备决赛/关键比赛安保和观众组织。</li><li>若有颁奖，设置仪式区、嘉宾流线和器材。</li><li>提前部署散场交通与失物处理。</li><li>比赛结束后转入撤场和正式交接。</li></ul></div>
+</div>
+<div class="note good">每日复盘必须形成“问题—原因—措施—责任人—完成时限—复核结果”清单。第二天、第三天的运行方案根据实际情况动态修订。</div>
+</section>
+
+<section class="slide">
+<div class="kicker">12 / 观众入场</div><h2>每日1000名观众的入场与容量管理</h2>
+<div class="flow"><div class="step">外围到达 / 落客停车</div><div class="arrow">→</div><div class="step">入口分流排队</div><div class="arrow">→</div><div class="step">安检及禁限带物品检查</div><div class="arrow">→</div><div class="step">验票 / 人数计数</div><div class="arrow">→</div><div class="step">看台分区引导</div></div>
+<div class="grid">
+<div class="card"><h3>进场组织</h3><ul><li>明确观众入口、开放时间、分区和票证方式。</li><li>设置排队缓冲区，队列不得占用消防、救护或交通通道。</li><li>入口采用实时计数；异常拥堵时按预案暂停放行、分流或调整入口。</li><li>达到批准容量或分区控制阈值时停止放行，按指挥程序处置。</li></ul></div>
+<div class="card"><h3>看台管理</h3><ul><li>按看台分区安排引导与巡查人员。</li><li>保持横向、纵向通道及出口无障碍。</li><li>禁止观众擅自进入比赛、媒体、更衣和技术区域。</li><li>为老年人、儿童及行动不便观众提供合理协助。</li></ul></div>
+</div>
+<div class="note danger">1000名/天不能直接用于推算安检通道数或疏散时间。需要观众到场分布、入口有效通行能力、场馆安全容量、安检流程和当地安全评估数据后，才能计算峰值排队与人员布点。</div>
+</section>
+
+<section class="slide">
+<div class="kicker">13 / 观众服务与散场</div><h2>看台运行、异常处置和分区离场</h2>
+<div class="grid3">
+<div class="card"><h3>引导服务</h3><p>入口导向、座席指引、卫生间与饮水点指示、无障碍通道和服务台。</p></div>
+<div class="card"><h3>秩序维护</h3><p>通道巡查、违规闯入、冲突纠纷、物品遗失、走失人员报告。</p></div>
+<div class="card"><h3>散场组织</h3><p>按看台区域分流，确保出口及外部道路承载衔接，不形成逆向人流。</p></div>
+</div>
+<h3 style="margin-top:17px">散场执行顺序</h3>
+<div class="flow"><div class="step">确认比赛/仪式结束</div><div class="arrow">→</div><div class="step">发布离场提示</div><div class="arrow">→</div><div class="step">分区引导放行</div><div class="arrow">→</div><div class="step">外围交通接续</div><div class="arrow">→</div><div class="step">区域清场复核</div></div>
+<div class="note">如出现局部拥堵，优先控制新增人流进入拥堵区域，安排人员疏导并为医疗救援留出通道；不得采用相互冲突的广播和现场口令。</div>
+</section>
+
+<section class="slide">
+<div class="kicker">14 / 运动员与裁判保障</div><h2>竞赛人员从抵达到离场的闭环服务</h2>
+<div class="flow"><div class="step">专用入口</div><div class="arrow">→</div><div class="step">证件核验签到</div><div class="arrow">→</div><div class="step">检录 / 竞赛信息确认</div><div class="arrow">→</div><div class="step">更衣 / 休息</div><div class="arrow">→</div><div class="step">热身 / 候场</div><div class="arrow">→</div><div class="step">比赛</div><div class="arrow">→</div><div class="step">恢复 / 离场</div></div>
+<div class="grid">
+<div class="card"><h3>运动员服务</h3><ul><li>按参赛队分配更衣室和储物区域，落实钥匙/权限管理。</li><li>提供饮水、卫生间、休息及必要的恢复空间。</li><li>热身区与观众区、比赛区合理隔离。</li><li>运动员伤病立即联系医疗组，避免非授权人员围观。</li><li>赛后按队伍安排离场，保持通道清晰。</li></ul></div>
+<div class="card"><h3>裁判与技术官员</h3><ul><li>独立签到、休息、更衣及赛前会议安排。</li><li>核查工作证、比赛资料、通信设备和工作席位。</li><li>控制裁判工作区域准入，防止无关人员干扰。</li><li>提供饮水、工作餐、轮休和必要的工作支持。</li><li>竞赛问题按竞赛规程向裁判长/竞赛负责人报告。</li></ul></div>
+</div>
+</section>
+
+<section class="slide">
+<div class="kicker">15 / 设施设备</div><h2>关键系统巡检、值守和故障闭环</h2>
+<table><thead><tr><th>系统</th><th>赛前检查</th><th>赛中要求</th><th>故障措施</th></tr></thead><tbody>
+<tr><td>草坪、排水及比赛器材</td><td>平整、积水、标线、球门固定、球网、角旗</td><td>场地异常巡查；场次间复检</td><td>隔离危险区域，报告竞赛主管，按程序决定是否继续使用</td></tr>
+<tr><td>供电与照明</td><td>配电、照明、应急照明、备用电源测试</td><td>工程人员在岗值守</td><td>隔离故障、按预案切换备用、评估赛事影响</td></tr>
+<tr><td>广播与显示</td><td>全分区广播、应急广播、显示屏和比分信息测试</td><td>信息准确，广播保持可用</td><td>备用广播/人工传达，统一口径</td></tr>
+<tr><td>通信、网络、监控</td><td>对讲覆盖、频道、监控点位、网络链路</td><td>监控重点区域，通信畅通</td><td>备用电池/通信方式，现场巡查补盲</td></tr>
+<tr><td>消防设施</td><td>消防设施、通道、疏散指示及应急照明</td><td>巡查，严禁占用消防设施和通道</td><td>立即报告，按消防预案行动</td></tr>
+<tr><td>卫生设施</td><td>卫生间、饮水、洗手设施、耗材</td><td>定时巡查、及时补充和清洁</td><td>设置提示、增派保洁、安排替代设施</td></tr>
+</tbody></table>
+<div class="note good">故障闭环：发现 → 报告 → 判定影响 → 维修或启用备用 → 功能复核 → 记录销项。涉及人身安全的故障必须先隔离风险区域，未经专业确认不得恢复使用。</div>
+</section>
+
+<section class="slide">
+<div class="kicker">16 / 医疗卫生</div><h2>医疗点布局与伤病救援响应</h2>
+<div class="grid3">
+<div class="card"><h3>赛场医疗点</h3><p>靠近比赛区域、便于医疗人员快速到场，但不妨碍比赛和裁判活动。</p></div>
+<div class="card"><h3>观众医疗点</h3><p>设置醒目标识，便于观众到达；路线适合担架或轮椅通行。</p></div>
+<div class="card"><h3>救护车接应点</h3><p>明确停靠、接应人员和出场路线；救援通道全程保持畅通。</p></div>
+</div>
+<h3 style="margin-top:17px">医疗事件处理流程</h3>
+<div class="flow"><div class="step">发现伤病并呼叫</div><div class="arrow">→</div><div class="step">医疗人员到场评估</div><div class="arrow">→</div><div class="step">专业救治</div><div class="arrow">→</div><div class="step">必要时转运</div><div class="arrow">→</div><div class="step">事件登记与复盘</div></div>
+<div class="grid" style="margin-top:12px">
+<div class="card"><h3>建议医疗准备</h3><ul><li>具备相应资质的医护人员和急救设备。</li><li>AED、急救箱、担架、轮椅及必要耗材。</li><li>明确属地定点医院、急救电话和联络人。</li><li>明确赛场和观众医疗点的岗位排班。</li></ul></div>
+<div class="card"><h3>运行团队职责</h3><ul><li>第一发现人立即报告位置和情况。</li><li>安保为救援人员和担架清出通道。</li><li>指挥中心联络医疗组、救护车及属地医院。</li><li>记录事件时间与处置过程，保护个人隐私。</li></ul></div>
+</div>
+<div class="note danger">医疗人员数量、救护车数量、急救设备配置由医疗负责人结合赛事风险、场馆条件及属地卫生健康部门要求确定；运行人员不得替代医护人员作医学判断。</div>
+</section>
+
+<section class="slide">
+<div class="kicker">17 / 安保消防</div><h2>安全管理重点与岗位控制</h2>
+<table><thead><tr><th>重点区域</th><th>主要风险</th><th>控制措施</th><th>责任岗位</th></tr></thead><tbody>
+<tr><td>外围道路 / 停车区</td><td>车辆人流交叉、落客拥堵、救援通道被占</td><td>车辆分类引导、落客区管理、救援通道巡查</td><td>交通联络岗、安保巡查岗</td></tr>
+<tr><td>观众入口</td><td>排队回堵、验票异常、携带禁限物品</td><td>排队缓冲、安检验票、实时计数和放行控制</td><td>入口负责人、安检岗位</td></tr>
+<tr><td>看台与通道</td><td>拥挤、跌倒、冲突、逆行、闯入场地</td><td>分区引导、巡查、通道保持畅通、及时报告</td><td>看台区负责人、巡查岗</td></tr>
+<tr><td>比赛核心区</td><td>非授权进入、器材松动、场地损伤</td><td>证件权限、隔离、赛前及场次间检查</td><td>竞赛保障组、场地负责人</td></tr>
+<tr><td>临时设施及设备间</td><td>用电、绊倒、火情、设施失稳</td><td>专业安装验收、线路防护、日常检查</td><td>工程组、设施供应商</td></tr>
+</tbody></table>
+<div class="note">现场消防工作以场馆既有消防设计、经审查的消防设施和属地消防要求为准。不得擅自改变疏散出口、锁闭出口或遮挡消防设施。</div>
+</section>
+
+<section class="slide">
+<div class="kicker">18 / 应急预案</div><h2>主要突发事件的第一响应</h2>
+<table><thead><tr><th>事件</th><th>第一响应</th><th>联动部门</th><th>恢复条件</th></tr></thead><tbody>
+<tr><td>火灾/烟情</td><td>立即报警；按消防预案组织避险/疏散；不得阻断消防通道</td><td>消防、公安、场馆工程、VOC</td><td>由有权部门确认风险排除，场馆安全复核</td></tr>
+<tr><td>严重伤病</td><td>立即呼叫医疗；保护现场通道；必要时启动急救转运</td><td>医疗组、急救中心、公安（视情况）</td><td>医疗负责人确认现场救护工作完成</td></tr>
+<tr><td>人员拥挤/推挤</td><td>暂停新增人流进入受影响区域；开辟空间、分流并呼叫安保</td><td>安保、观众服务、VOC、公安</td><td>人流恢复可控，通道和容量复核</td></tr>
+<tr><td>雷电/暴雨/大风/高温</td><td>监测预警；评估户外风险；按熔断流程暂停、转移或疏散</td><td>竞赛、医疗、气象联络、运行负责人</td><td>达到赛事规程和安全标准的恢复条件</td></tr>
+<tr><td>停电/广播中断</td><td>检查备用系统；启动应急照明/替代广播；评估是否暂停活动</td><td>工程、信息、竞赛、VOC</td><td>关键系统恢复并经测试确认</td></tr>
+<tr><td>治安冲突/闯入</td><td>保护周边人员、控制区域、报告公安，不擅自扩大冲突</td><td>安保、公安、竞赛负责人</td><td>现场秩序恢复并完成安全评估</td></tr>
+</tbody></table>
+</section>
+
+<section class="slide">
+<div class="kicker">19 / 应急指挥</div><h2>事件上报、调度与闭环“五步法”</h2>
+<div class="grid3">
+<div class="card"><div class="n" style="font-size:29px;color:var(--green)">01</div><h3>发现</h3><p>第一发现人报告准确位置、事件类型、涉及人数、现场风险。</p></div>
+<div class="card"><div class="n" style="font-size:29px;color:var(--green)">02</div><h3>报告</h3><p>立即向VOC报告；重大安全、火灾、伤病事件同时按要求报警/呼救。</p></div>
+<div class="card"><div class="n" style="font-size:29px;color:var(--green)">03</div><h3>响应</h3><p>值班长通知相关专项组，按预案启动资源调度和现场控制。</p></div>
+<div class="card"><div class="n" style="font-size:29px;color:var(--green)">04</div><h3>处置</h3><p>专业部门实施救援和处置；场馆团队负责通道、秩序、信息和资源支持。</p></div>
+<div class="card"><div class="n" style="font-size:29px;color:var(--green)">05</div><h3>恢复</h3><p>确认安全条件、获授权后恢复运行；形成记录并开展复盘整改。</p></div>
+<div class="card"><h3>指挥纪律</h3><p>赛事暂停/恢复由竞赛规程和赛事应急机制授权主体决定；场馆团队负责风险报告和执行。生命安全受到即时威胁时先采取必要保护措施。</p></div>
+</div>
+<div class="note good">无线电标准：呼叫对象 → 报告位置 → 说明事件 → 说明已采取措施 → 提出资源请求 → 复诵确认 → 反馈处置结果。</div>
+</section>
+
+<section class="slide">
+<div class="kicker">20 / 天气与交通</div><h2>气象监测、外围交通及车辆保障</h2>
+<div class="grid">
+<div class="card"><h3>天气监测</h3><ul><li>赛前和赛中持续关注官方气象预报、预警。</li><li>雷电、暴雨、大风、高温分别明确监测责任人和信息通报渠道。</li><li>检查临时广告、遮阳棚、围挡等设施的稳定与防风措施。</li><li>高温安排饮水、遮阴、休息和医疗关注。</li><li>积水及时排查，危险区域隔离并报告。</li></ul></div>
+<div class="card"><h3>交通与停车</h3><ul><li>运动队/竞赛官员车辆与观众车辆尽可能分流。</li><li>设置车辆落客区、停车区域和步行引导路径。</li><li>救护车、消防通道优先，任何车辆不得占用。</li><li>与交警和交通部门保持联络，提前部署散场交通。</li><li>车辆凭证、临停时间和调度联系人明确。</li></ul></div>
+</div>
+<div class="flow"><div class="step">预警或现场异常</div><div class="arrow">→</div><div class="step">风险评估</div><div class="arrow">→</div><div class="step">赛事授权主体决策</div><div class="arrow">→</div><div class="step">发布指令</div><div class="arrow">→</div><div class="step">暂停/调整/疏散</div><div class="arrow">→</div><div class="step">安全复核</div></div>
+</section>
+
+<section class="slide">
+<div class="kicker">21 / 后勤物资</div><h2>物资清单与领用管理闭环</h2>
+<div class="grid3">
+<div class="card"><h3>通信与办公</h3><p>对讲机、备用电池、充电器、耳机、频道表、通讯录、运行日志、检查表、文具。</p></div>
+<div class="card"><h3>秩序引导</h3><p>隔离栏、警戒带、路锥、手持指示牌、岗位标牌、区域导向标识。</p></div>
+<div class="card"><h3>医疗救援</h3><p>按医疗负责人清单配备急救用品、AED、担架、轮椅及防护耗材。</p></div>
+<div class="card"><h3>卫生保洁</h3><p>垃圾袋、清洁工具、消毒用品、洗手用品、卫生纸和补充耗材。</p></div>
+<div class="card"><h3>饮水与餐食</h3><p>按人员名单、比赛班次和工作时段核算；确认配送、储存和补给责任。</p></div>
+<div class="card"><h3>设备备品</h3><p>关键系统备用电源、线缆、备用对讲机、广播替代设备及常用维修工具。</p></div>
+</div>
+<h3 style="margin-top:16px">物资闭环管理</h3>
+<div class="flow"><div class="step">需求计划</div><div class="arrow">→</div><div class="step">采购 / 调拨</div><div class="arrow">→</div><div class="step">验收登记</div><div class="arrow">→</div><div class="step">分类入库</div><div class="arrow">→</div><div class="step">领用签字</div><div class="arrow">→</div><div class="step">回收盘点</div></div>
+</section>
+
+<section class="slide">
+<div class="kicker">22 / VOC指挥中心</div><h2>运行指挥中心的值守和信息管理</h2>
+<div class="grid">
+<div class="card"><h3>核心功能</h3><ul><li>汇总场馆各区域实时状态和专项组报告。</li><li>监控入口、看台、比赛区、医疗通道等重点位置。</li><li>统一协调人员、设备、维修和应急资源。</li><li>按授权发布运行通知和应急信息。</li><li>记录事件时间线、指令、执行人和处理结果。</li></ul></div>
+<div class="card"><h3>建议值守席位</h3><ul><li>值班指挥/副指挥</li><li>信息记录员</li><li>视频监控员</li><li>通信调度员</li><li>竞赛、安保、医疗、工程联络员</li></ul></div>
+</div>
+<div class="card" style="margin-top:12px"><h3>对讲机话术示例</h3><p style="color:#eef5ff;font-size:14px">“指挥中心，观众区A看台5号通道报告：发现一名观众身体不适，具体位置在通道中段，现场已留出通道，请医疗组到场，安保协助引导。”</p></div>
+<div class="note">重要信息必须复核再发布；涉及医疗个人信息、未成年人和事故当事人信息，按隐私保护要求管理，不在开放频道传播不必要的个人信息。</div>
+</section>
+
+<section class="slide">
+<div class="kicker">23 / 赛后撤场</div><h2>第三天收官后的清场与场馆恢复</h2>
+<div class="flow"><div class="step">比赛及颁奖完成</div><div class="arrow">→</div><div class="step">观众分区离场</div><div class="arrow">→</div><div class="step">全区域清场</div><div class="arrow">→</div><div class="step">设备物资回收</div><div class="arrow">→</div><div class="step">清洁修复</div><div class="arrow">→</div><div class="step">验收交接</div></div>
+<table style="margin-top:12px"><thead><tr><th>区域</th><th>撤场任务</th><th>验收责任</th></tr></thead><tbody>
+<tr><td>比赛区域</td><td>草坪、球门、标线、角旗、替补席和器材检查复位</td><td>竞赛保障组/场馆管理方</td></tr>
+<tr><td>观众区域</td><td>清洁看台、检查座椅栏杆、回收导向标识和临时隔离设施</td><td>观众服务组/保洁</td></tr>
+<tr><td>媒体与服务区</td><td>设备撤收、临时设施拆除、遗失物品登记</td><td>媒体组/区域负责人</td></tr>
+<tr><td>工程区域</td><td>临时电缆及设备安全拆除，检查用电和系统状态</td><td>工程组/场馆工程负责人</td></tr>
+<tr><td>医疗与后勤</td><td>物资盘点、耗材登记、垃圾清运、仓库恢复</td><td>医疗组/后勤组</td></tr>
+<tr><td>全场</td><td>无人滞留确认、隐患复查、损坏记录、场馆交接签字</td><td>运行总负责人/场馆管理方</td></tr>
+</tbody></table>
+</section>
+
+<section class="slide">
+<div class="kicker">24 / 运行评估</div><h2>运行KPI与赛后复盘</h2>
+<div class="grid3">
+<div class="card"><div class="n" style="font-size:30px;color:var(--green)">0</div><h3>重大安全事故目标</h3><p>目标性管理指标，不代表风险为零即可免除检查。</p></div>
+<div class="card"><div class="n" style="font-size:30px;color:var(--green)">100%</div><h3>赛前检查完成率</h3><p>每项检查可追溯到检查人、时间和结论。</p></div>
+<div class="card"><div class="n" style="font-size:30px;color:var(--green)">100%</div><h3>关键岗位到岗确认率</h3><p>临时缺岗有补位人员和交接记录。</p></div>
+</div>
+<table style="margin-top:12px"><thead><tr><th>评估维度</th><th>统计内容</th><th>复盘输出</th></tr></thead><tbody>
+<tr><td>观众运行</td><td>每日入场人数、峰值时段、排队时长、拥堵点、投诉</td><td>入口布岗和观众引导优化</td></tr>
+<tr><td>竞赛运行</td><td>场地交付、器材故障、场馆原因造成的延误</td><td>场地维护和场次衔接改进</td></tr>
+<tr><td>安全医疗</td><td>事件数量、响应流程、救援通道、整改情况</td><td>风险控制和医疗保障优化</td></tr>
+<tr><td>设备后勤</td><td>设备故障、维修时长、物资消耗、清洁情况</td><td>备品备件和供应计划调整</td></tr>
+<tr><td>人员管理</td><td>到岗率、培训覆盖、轮休、岗位交接</td><td>岗位图、培训和排班优化</td></tr>
+</tbody></table>
+<div class="note good">赛后24小时内开展内部复盘；按组委会要求形成正式总结。重大事件另行形成专项报告，保留现场记录、处置时间线和整改证据。</div>
+</section>
+
+<section class="slide">
+<div class="kicker">25 / 负责人每日工作清单</div><h2>场馆运行总负责人现场执行清单</h2>
+<h3>开场前：是否具备开放条件</h3>
+<div class="checkgrid">
+<label class="check"><input type="checkbox"> 组织架构、岗位负责人及联络方式明确</label>
+<label class="check"><input type="checkbox"> 当日赛程、观众预测、天气和重点风险已通报</label>
+<label class="check"><input type="checkbox"> 竞赛场地与比赛器材检查完成</label>
+<label class="check"><input type="checkbox"> 安保、入口、看台和外围岗位到位</label>
+<label class="check"><input type="checkbox"> 医疗点及救援通道可用</label>
+<label class="check"><input type="checkbox"> 消防通道和应急设施检查完成</label>
+<label class="check"><input type="checkbox"> 广播、通信、供电、监控和网络正常</label>
+<label class="check"><input type="checkbox"> 卫生、饮水、物资和服务点到位</label>
+</div>
+<h3 style="margin-top:15px">赛中：是否持续处于受控状态</h3>
+<div class="checkgrid">
+<label class="check"><input type="checkbox"> 实时人数与看台分区容量可控</label>
+<label class="check"><input type="checkbox"> 入口排队未占用消防和救援通道</label>
+<label class="check"><input type="checkbox"> 运动员、裁判服务及场地交接顺畅</label>
+<label class="check"><input type="checkbox"> 医疗、工程、安保岗位持续值守</label>
+<label class="check"><input type="checkbox"> 重大异常及时报告并启动相应预案</label>
+<label class="check"><input type="checkbox"> 岗位轮休、饮水和人员补位落实</label>
+</div>
+<h3 style="margin-top:15px">闭场后：是否完成恢复和交接</h3>
+<div class="checkgrid">
+<label class="check"><input type="checkbox"> 观众及工作人员完成清场确认</label>
+<label class="check"><input type="checkbox"> 重点区域复查，无遗留人员和风险</label>
+<label class="check"><input type="checkbox"> 设备复位、物资盘点和卫生清洁完成</label>
+<label class="check"><input type="checkbox"> 运行日志、事件台账和次日整改计划完成</label>
+</div>
+</section>
+
+<section class="slide">
+<div class="kicker">26 / 正式落地资料</div><h2>执行前还必须形成的配套附件</h2>
+<div class="grid">
+<div class="card"><h3>附件A｜场馆图纸</h3><p>场馆总平面、功能分区图、人员动线图、应急疏散图、医疗救援路线图、停车及落客图。</p></div>
+<div class="card"><h3>附件B｜人员资料</h3><p>组织架构图、200人实名岗位表、证件权限表、排班表、岗位交接表、培训签到和考核。</p></div>
+<div class="card"><h3>附件C｜运行表单</h3><p>赛前验收表、每日巡检表、设备故障单、物资领用表、观众计数表、运行日志和复盘表。</p></div>
+<div class="card"><h3>附件D｜应急文件</h3><p>安全工作方案、风险评估、医疗保障方案、消防/疏散预案、极端天气熔断机制、通讯录。</p></div>
+</div>
+<div class="note danger">当前文件尚未包含真实场馆平面布点、各出口容量计算、法定安保配置、医疗救护车数量及比赛场次排程。这些均须取得实际场馆和属地专业部门数据后补齐，不能凭空假设。</div>
+</section>
+
+<section class="slide">
+<div class="kicker">27 / 参考依据</div><h2>规范与参考资料</h2>
+<div class="card reference">
+<h3>中国大陆赛事组织管理依据</h3>
+<p><b>《体育赛事活动管理办法》</b>：赛事组织、主承办责任、风险评估、安全工作方案、医疗保障及应急处置预案等。</p>
+<p><a href="https://www.sport.gov.cn/n315/n20001395/c25071703/content.html" target="_blank" rel="noopener">国家体育总局 · 体育赛事活动管理办法</a></p>
+<p><b>《关于进一步加强体育赛事活动安全监管服务的意见》</b>：赛前研判、赛中监管、赛后评估、风险隐患排查及应急预案。</p>
+<p><a href="https://www.sport.gov.cn/n315/n9041/n9042/n9168/n9173/n9175/c23492095/content.html" target="_blank" rel="noopener">国家体育总局 · 安全监管服务意见</a></p>
+<p><b>《体育行业安全生产重大事故隐患判定标准》相关要求</b>：风险防范及应急预案、安全生产方案、观众冲突及拥挤风险、天气监测、场所容量和设施器材安全等。</p>
+<p><a href="https://www.sport.gov.cn/jjs/n5032/c29370332/content.html" target="_blank" rel="noopener">国家体育总局 · 体育行业安全生产重大事故隐患判定标准相关信息</a></p>
+</div>
+<div class="card reference" style="margin-top:12px">
+<h3>国际场馆运行参考</h3>
+<p><b>FIFA Stadium Guidelines — Operations policies and procedures</b>：场馆运行计划、观众安全、容量、风险评估、应急、医疗、消防和交通管理。</p>
+<p><a href="https://inside.fifa.com/innovation/stadium-guidelines/general-process-guidelines/operations/policies-and-procedures" target="_blank" rel="noopener">FIFA · Operations policies and procedures</a></p>
+<p><b>FIFA Stadium Guidelines — Safety and security</b>：紧急疏散、场馆运行中心（VOC）和医疗设施。</p>
+<p><a href="https://inside.fifa.com/innovation/stadium-guidelines/technical-guidelines/stadiums-guidelines/safety-and-security" target="_blank" rel="noopener">FIFA · Safety and security</a></p>
+</div>
+<p class="small">说明：参考资料用于方案结构和管理方法参考；实际适用规范、最新版本、赛事审批备案条件及地方规定，以主办地体育、公安、消防、卫生健康、应急管理等主管部门要求为准。</p>
+</section>
+
+<section class="slide">
+<div class="cover">
+<div class="kicker">执行总纲 / FINAL</div>
+<h2 style="font-size:clamp(30px,4.4vw,54px)">把场馆运行做成<br><span style="color:var(--green)">可指挥、可检查、可追溯的系统</span></h2>
+<div class="grid3" style="margin-top:18px">
+<div class="card"><h3>赛前</h3><strong>把风险排在前面</strong><p>踏勘、评估、布置、培训、演练、验收。</p></div>
+<div class="card"><h3>赛中</h3><strong>把运行控制在现场</strong><p>统一指挥、岗位到人、动态监控、及时响应。</p></div>
+<div class="card"><h3>赛后</h3><strong>把场馆恢复到位</strong><p>清场、盘点、复位、交接、复盘、整改。</p></div>
+</div>
+<div class="titleline"></div>
+<p class="subtitle">岗位有人 · 区域有人 · 责任有人 · 信息有人报 · 问题有人处理 · 结果有人复核</p>
+<p class="small" style="margin-top:28px">本方案作为场馆专项运行方案主体底稿使用。正式执行版须附实际场馆图、赛事日程、实名岗位表、风险评估、属地联络表及经审批/审核的专项预案。</p>
+</div>
+</section>
+
+  </div>
+  <div class="footer">
+    <div class="footer-left"><button class="navbtn" id="prevBtn">← 上一页</button><span class="hint">键盘 ← → / 空格翻页</span></div>
+    <div class="counter" id="counter">1 / 29</div>
+    <div class="footer-right"><button class="navbtn primary" id="nextBtn">下一页 →</button></div>
+  </div>
+  <div class="toc" id="toc"><h3>章节导航</h3><div id="tocItems"></div></div>
+</div>
+<script>
+(function(){
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const stage = document.getElementById('stage');
+  const tocItems = document.getElementById('tocItems');
+  const progress = document.getElementById('progressBar');
+  const counter = document.getElementById('counter');
+  const prev = document.getElementById('prevBtn');
+  const next = document.getElementById('nextBtn');
+  let current = 0, ticking = false;
+
+  const titles = slides.map((slide, i) => {
+    const heading = slide.querySelector('h1,h2');
+    const name = heading ? heading.textContent.replace(/\s+/g, ' ').trim() : '封面';
+    return String(i + 1).padStart(2, '0') + ' · ' + name;
+  });
+
+  tocItems.innerHTML = '';
+  titles.forEach((title, i) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.textContent = title;
+    button.addEventListener('click', () => goTo(i));
+    tocItems.appendChild(button);
+  });
+
+  function setCurrent(i) {
+    current = Math.max(0, Math.min(slides.length - 1, i));
+    Array.from(tocItems.children).forEach((button, n) => {
+      button.classList.toggle('sel', n === current);
+      if (n === current) button.setAttribute('aria-current', 'location');
+      else button.removeAttribute('aria-current');
+    });
+    counter.textContent = (current + 1) + ' / ' + slides.length;
+    progress.style.width = ((current + 1) / slides.length * 100) + '%';
+    prev.disabled = current === 0;
+    next.disabled = current === slides.length - 1;
+    document.title = titles[current] + ' | 省级足球锦标赛场馆运行方案';
+  }
+
+  function goTo(i) {
+    const n = Math.max(0, Math.min(slides.length - 1, i));
+    setCurrent(n);
+    const y = slides[n].getBoundingClientRect().top
+      - stage.getBoundingClientRect().top + stage.scrollTop;
+    stage.scrollTo({ top: Math.max(0, y - 8), behavior: 'smooth' });
+  }
+
+  function syncByScroll() {
+    const threshold = stage.getBoundingClientRect().top + Math.min(120, stage.clientHeight * 0.22);
+    let active = 0;
+    for (let i = 0; i < slides.length; i++) {
+      if (slides[i].getBoundingClientRect().top <= threshold) active = i;
+      else break;
+    }
+    if (active !== current) setCurrent(active);
+  }
+
+  stage.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => { syncByScroll(); ticking = false; });
+  }, { passive: true });
+
+  prev.addEventListener('click', () => goTo(current - 1));
+  next.addEventListener('click', () => goTo(current + 1));
+
+  document.getElementById('printBtn').addEventListener('click', () => window.print());
+  document.getElementById('fullBtn').addEventListener('click', async () => {
+    try {
+      if (!document.fullscreenElement) await document.documentElement.requestFullscreen();
+      else await document.exitFullscreen();
+    } catch (e) {
+      alert('当前浏览器未允许全屏，请使用浏览器菜单全屏。');
+    }
+  });
+
+  document.addEventListener('keydown', event => {
+    const tag = (document.activeElement && document.activeElement.tagName || '').toLowerCase();
+    if (['input','textarea','select'].includes(tag)) return;
+    if (['ArrowDown','PageDown',' '].includes(event.key)) { event.preventDefault(); goTo(current + 1); }
+    else if (['ArrowUp','PageUp'].includes(event.key)) { event.preventDefault(); goTo(current - 1); }
+    else if (event.key === 'Home') { event.preventDefault(); goTo(0); }
+    else if (event.key === 'End') { event.preventDefault(); goTo(slides.length - 1); }
+  });
+
+  setCurrent(0);
+  stage.scrollTop = 0;
+})();
+</script>
+</body>
+</html>
